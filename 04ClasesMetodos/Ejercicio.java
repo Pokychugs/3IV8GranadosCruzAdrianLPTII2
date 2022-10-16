@@ -163,7 +163,13 @@ class Ejercicio {
     // metodo3
     public void Ejercicio3() {
         /* Hacer un cuadrado de maximo 1000 de dimension */
+        DateFormat resultado;
+        System.out.println("Ahora calcularemos su edad: ");
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
+        Calendar calobj = Calendar.getInstance();
+        resultado = ;
+        System.out.println(df.format(calobj.getTime()));
     }
 
     // metodo4

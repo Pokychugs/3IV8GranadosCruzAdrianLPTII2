@@ -26,6 +26,7 @@ class TareaEjercicios{
                     DatosPersonales();
                     break;
                 case 'b':
+                    
                     Figuras();
                     System.out.println("Elija la figura que guste obtener su area y perimetro");
                     System.out.println("1.-Rectangulo");
@@ -56,7 +57,8 @@ class TareaEjercicios{
                     break;
                 case 'd':
                     DatosEmpleado();
-                    //PagoTotal();
+                    SueldoEmpleado();
+                    SueldoSupervisor();
                     break;
                 default:
                     System.out.println("Opcion no valda, gracias por probar el programa");
@@ -110,8 +112,8 @@ class TareaEjercicios{
                         }
                     }
                 }       
-            }catch(Exception thread){
-                    System.out.println("ERROR: " + thread.getMessage());
+            }catch(Exception e){
+                    System.out.println("ERROR: " + e.getMessage());
                     System.out.println("Ingresa solo numeros enteros");
                     entrada.nextLine();
                     seguir = false;
@@ -239,13 +241,82 @@ class TareaEjercicios{
         }
     }
 
-    public void DatosEmpleado(){
-        int idempleado = 2357;
-        int idsupervisor = 9761;
-        String nombre;
-        String puesto;
-        double dobleArray[];
+    int puesto;
+    double[] sueldoQuincenal = {5000.00,8000.00};
+    double pagoEmpleado, pagoSupervisor;
+    String idEmpleado;
+    String idSupervisor;
 
-        
+    public void DatosEmpleado(){
+
+        while(seguir == false){
+            try{
+                seguir = false;
+                System.out.println("Elige tu puesto: ");
+                System.out.println("1.- Empleado");
+                System.out.println("2.- Supervisor");
+                puesto = entrada.nextInt();
+
+                switch(puesto){
+                case 1:
+                    System.out.println("Ingresa tu ID de Empleado: ");
+                    idEmpleado = entrada.next("666");
+                    SueldoEmpleado();
+                    break;
+                case 2:
+                    System.out.println("Ingresa tu ID de Supervisor: ");
+                    idSupervisor = entrada.next("777");
+                    SueldoSupervisor();
+                    break;
+                default:
+                    System.out.println("Ese puesto no existe.");   
+                    break;
+                }
+            }catch(Exception e) {
+                System.out.println("ERROR: " + e.getMessage());
+                System.out.println("Ingresa solo numeros validos");
+                entrada.nextLine();
+                seguir = false;
+            }
+        }
+    }
+
+    public void SueldoSupervisor(){
+        double infonavit, medico, isr;
+        while(seguir == false){
+            try{
+                seguir = true;
+                infonavit = (sueldoQuincenal[1]) * (0.2);
+                medico = (sueldoQuincenal[1]) * (0.1);
+                isr = (sueldoQuincenal[1]) * (0.16);
+                pagoSupervisor = (sueldoQuincenal[1]) - (infonavit) - (medico) -(isr);
+                System.out.println("Tu sueldo es de: " + pagoSupervisor);
+            }catch(Exception e) {
+                System.out.println("ERROR: " + e.getMessage());
+                System.out.println("Ingresa solo numeros validos");
+                entrada.nextLine();
+                seguir = false;
+            }
+        }
+    }
+
+    public void SueldoEmpleado(){
+        double hrsdiurnas, hrsnocturnas;
+        while(seguir == false){
+            try{
+                seguir = true;
+                System.out.println("Ingresa el numero de horas diurnas extra que trabajaste: ");
+                hrsdiurnas = entrada.nextDouble();
+                System.out.println("Ingresa el numero de horas nocturnas extra que trabajaste: ");
+                hrsnocturnas = entrada.nextDouble();
+                pagoEmpleado = (sueldoQuincenal[0]) + (hrsdiurnas*50.0) + (hrsnocturnas*60.0);
+                System.out.println("Tu sueldo quincenal es: " + pagoEmpleado);
+            }catch(Exception e) {
+                System.out.println("ERROR: " + e.getMessage());
+                System.out.println("Ingresa solo numeros");
+                entrada.nextLine();
+                seguir = false;
+            }
+        }
     }
 }
