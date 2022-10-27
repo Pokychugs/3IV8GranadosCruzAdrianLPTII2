@@ -7,7 +7,7 @@ public class Animal {
      */
 
     private String nombre, raza, tipo_alimento;
-    private int edad;
+    private int edad; 
 
     /*
      * Definimos el constructor, este nos sirve para poder declarar la existencia de

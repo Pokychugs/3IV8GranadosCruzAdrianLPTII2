@@ -1,6 +1,7 @@
 public class Principal {
 
     public static void main(String[] args) {
+        /*
         // mascotas kawaii
         Gato cat = new Gato("Michit", "de la calle", "atun", 1, 7);
         Perro dog = new Perro("Pulgas", "de la calle", "croquetas", 2, "hace guau guau");
@@ -18,5 +19,7 @@ public class Principal {
          * 5 huron
          * Deben ingresar los nombres y los datos
          */
+        Datos datos = new Datos();
+        datos.main();
     }
 }

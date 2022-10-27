@@ -21,7 +21,7 @@ public class Gato extends Animal {
     }
 
     // set
-    public void setLadrido(Integer num_vidas) {
+    public void setNum_vidas(Integer num_vidas) {
         this.num_vidas = num_vidas;
     }
 
